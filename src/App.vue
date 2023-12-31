@@ -41,7 +41,7 @@ const checkTaskDone = (task, completed) => {
       <div class="card-body">
         <form @submit="addTask">
           <div class="mb-3">
-            <label class="form-label" for="txtTask">Task</label>
+            <label class="form-label">Task</label>
             <input type="text" class="form-control" v-model="txtTask">
           </div>
                     
@@ -56,8 +56,8 @@ const checkTaskDone = (task, completed) => {
       <div class="card" v-for="(item, i) in taskList" :key="item.task">
         <div class="card-body">
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" :id="'chkTask' + item.task" @change="checkTaskDone(item.task, !item.completed)">
-            <label class="form-check-label" :for="'chkTask' + item.task">
+            <input type="checkbox" class="form-check-input" @change="checkTaskDone(item.task, !item.completed)">
+            <label class="form-check-label">
               <span class="me-2">{{ item.task }}</span>
               <span class="badge bg-success px-1" v-if="item.completed">completed</span>
               <span class="badge bg-danger px-1" v-else>pending</span>
