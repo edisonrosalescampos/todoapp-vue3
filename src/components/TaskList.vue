@@ -9,6 +9,6 @@ defineProps({
 <template>
     <div class="text-white text-center" v-if="tasks.length === 0">No pending tasks to show</div>
     <div class="task-list" v-else>
-        <TaskItem v-for="item in tasks" :task="item" :key="item.description" />
+        <TaskItem v-for="task in tasks" :task="task" :key="task.description" />
     </div>
 </template>

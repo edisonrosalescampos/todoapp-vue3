@@ -10,7 +10,7 @@ const tasks = inject('tasks');
 const deleteTask = (task) => {
   tasks.value = tasks.value.filter(item => item.description !== task);
 }
-const checkTaskDone = (task, completed) => {
+const changeTaskStatus = (task, completed) => {
   tasks.value = tasks.value.map(item => {
     if (item.description === task) 
     {
@@ -26,7 +26,7 @@ const checkTaskDone = (task, completed) => {
   <div class="card">
     <div class="card-body">
       <div class="form-check">
-        <input type="checkbox" class="form-check-input" @change="checkTaskDone(task.description, !task.completed)">
+        <input type="checkbox" class="form-check-input" @change="changeTaskStatus(task.description, !task.completed)">
         <label class="form-check-label">
           <span class="me-2">{{ task.description }}</span>
           <span class="badge bg-success px-1" v-if="task.completed">completed</span>
